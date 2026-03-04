@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center space-x-2 mb-3">
               <Image
-                src="/logo-sg.png"
+                src="/logo.png"
                 alt="Surya Grafika"
                 width={28}
                 height={28}
