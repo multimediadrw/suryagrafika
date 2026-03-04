@@ -215,16 +215,34 @@ export default function Home() {
               Dipercaya oleh berbagai perusahaan dan instansi untuk kebutuhan cetak mereka.
             </p>
           </div>
-          {/* Logo placeholder - akan diisi setelah logo partner tersedia */}
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div
-                key={i}
-                className="w-32 h-16 bg-gray-200 rounded-lg flex items-center justify-center"
-              >
-                <span className="text-gray-400 text-xs font-medium">Logo Partner</span>
-              </div>
-            ))}
+          <div className="marquee-wrapper py-4">
+            <div className="marquee-track">
+              {/* Set pertama */}
+              {[
+                { src: '/partner/younghyun-star.png', name: 'PT. YoungHyun Star' },
+                { src: '/partner/doosan-jaya-sukabumi.png', name: 'PT. Doosan Jaya Sukabumi' },
+                { src: '/partner/doosan-dunia-busana.png', name: 'PT. Doosan Dunia Busana' },
+                { src: '/partner/doosan-jaya.png', name: 'PT. Busana Indah Global' },
+                { src: '/partner/sengsil.png', name: 'PT. Sengsil Indonesia' },
+                /* Duplikat untuk seamless loop */
+                { src: '/partner/younghyun-star.png', name: 'PT. YoungHyun Star' },
+                { src: '/partner/doosan-jaya-sukabumi.png', name: 'PT. Doosan Jaya Sukabumi' },
+                { src: '/partner/doosan-dunia-busana.png', name: 'PT. Doosan Dunia Busana' },
+                { src: '/partner/doosan-jaya.png', name: 'PT. Busana Indah Global' },
+                { src: '/partner/sengsil.png', name: 'PT. Sengsil Indonesia' },
+              ].map((partner, i) => (
+                <div key={i} className="flex flex-col items-center justify-center mx-10 min-w-[140px]">
+                  <div className="w-32 h-20 flex items-center justify-center">
+                    <img
+                      src={partner.src}
+                      alt={partner.name}
+                      className="max-h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    />
+                  </div>
+                  <p className="text-xs text-gray-400 mt-2 text-center whitespace-nowrap">{partner.name}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
