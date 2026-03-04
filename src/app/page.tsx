@@ -57,6 +57,45 @@ const services = [
   },
 ];
 
+const whyUs = [
+  {
+    title: "Harga Kompetitif",
+    description: "Penawaran harga terbaik untuk setiap kebutuhan cetak Anda.",
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Komunikatif",
+    description: "Pelayanan ramah dan responsif untuk konsultasi.",
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Melayani Pesanan Urgent",
+    description: "Siap membantu kebutuhan cetak mendadak Anda.",
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Pengerjaan Cepat",
+    description: "Proses produksi efisien dan tepat waktu.",
+    icon: (
+      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      </svg>
+    ),
+  },
+];
+
 const testimonials = [
   {
     name: "Budi Santoso",
@@ -81,7 +120,7 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="bg-sky-50">
-      {/* Hero Section - full screen with padding-top for transparent navbar */}
+      {/* Hero Section */}
       <section className="gradient-hero text-white min-h-screen flex items-center pt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -112,39 +151,18 @@ export default function Home() {
               </div>
             </div>
             <div className="hidden md:flex justify-center">
-              <div className="relative">
-                <div className="w-80 h-80 bg-sky-400/20 rounded-full flex items-center justify-center">
-                  <div className="w-64 h-64 bg-sky-400/30 rounded-full flex items-center justify-center">
-                    <div className="text-center">
-                      <svg className="w-24 h-24 text-white/80 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" />
-                      </svg>
-                      <p className="text-white font-bold text-xl">Surya Grafika</p>
-                      <p className="text-sky-200 text-sm">Percetakan Profesional</p>
-                    </div>
+              <div className="w-80 h-80 bg-sky-400/20 rounded-full flex items-center justify-center">
+                <div className="w-64 h-64 bg-sky-400/30 rounded-full flex items-center justify-center">
+                  <div className="text-center">
+                    <svg className="w-24 h-24 text-white/80 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" />
+                    </svg>
+                    <p className="text-white font-bold text-xl">Surya Grafika</p>
+                    <p className="text-sky-200 text-sm">Percetakan Profesional</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-white py-12 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { value: "10+", label: "Tahun Pengalaman" },
-              { value: "5000+", label: "Pelanggan Puas" },
-              { value: "6", label: "Jenis Layanan" },
-              { value: "24 Jam", label: "Layanan Express" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-3xl md:text-4xl font-bold text-sky-600">{stat.value}</div>
-                <div className="text-sky-800 text-sm mt-1">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -172,7 +190,7 @@ export default function Home() {
           </div>
           <div className="text-center mt-12">
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6285860765740"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 bg-green-500 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
@@ -186,57 +204,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      {/* Why Choose Us - Dark Blue Background */}
+      <section className="py-20 bg-[#1a3a6b]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-sky-500 font-semibold text-sm uppercase tracking-wider">Keunggulan Kami</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-sky-900 mt-2 mb-6">
-                Mengapa Memilih Surya Grafika?
-              </h2>
-              <div className="space-y-5">
-                {[
-                  { title: "Kualitas Terjamin", desc: "Menggunakan mesin cetak modern dan bahan berkualitas tinggi untuk hasil terbaik." },
-                  { title: "Harga Terjangkau", desc: "Harga kompetitif tanpa mengorbankan kualitas produk cetakan Anda." },
-                  { title: "Pengerjaan Cepat", desc: "Komitmen pengerjaan tepat waktu dengan layanan express tersedia." },
-                  { title: "Tim Profesional", desc: "Didukung oleh tim berpengalaman yang siap membantu setiap kebutuhan Anda." },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-sky-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-4 h-4 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sky-800">{item.title}</h4>
-                      <p className="text-sky-600 text-sm mt-1">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Mengapa Harus Kami?</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyUs.map((item) => (
+              <div key={item.title} className="text-center">
+                <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-blue-200 text-sm leading-relaxed">{item.description}</p>
               </div>
-            </div>
-            <div className="bg-gradient-to-br from-sky-500 to-sky-700 rounded-3xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Proses Pemesanan</h3>
-              <div className="space-y-6">
-                {[
-                  { step: "01", title: "Konsultasi", desc: "Hubungi kami dan konsultasikan kebutuhan cetak Anda." },
-                  { step: "02", title: "Desain & Approval", desc: "Tim kami menyiapkan desain dan menunggu persetujuan Anda." },
-                  { step: "03", title: "Proses Cetak", desc: "Setelah disetujui, proses cetak segera dimulai." },
-                  { step: "04", title: "Pengiriman", desc: "Produk dikirim ke alamat Anda atau bisa diambil langsung." },
-                ].map((item) => (
-                  <div key={item.step} className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-sky-100">
-                      {item.step}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">{item.title}</h4>
-                      <p className="text-sky-200 text-sm mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -284,7 +267,7 @@ export default function Home() {
               Hubungi Kami
             </Link>
             <a
-              href="https://wa.me/6281234567890"
+              href="https://wa.me/6285860765740"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-colors"

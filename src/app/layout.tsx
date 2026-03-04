@@ -5,8 +5,12 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Surya Grafika - Percetakan Profesional",
-  description: "Surya Grafika adalah percetakan profesional yang melayani berbagai kebutuhan cetak Anda dengan kualitas terbaik dan harga terjangkau.",
-  keywords: "percetakan, cetak, brosur, banner, kartu nama, spanduk, undangan, surya grafika",
+  description: "Surya Grafika adalah usaha percetakan yang telah berdiri lebih dari 20 tahun, melayani kebutuhan cetak untuk perusahaan, pabrik, dan perkantoran.",
+  keywords: "percetakan, cetak, brosur, banner, kartu nama, spanduk, undangan, surya grafika, sukabumi",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
