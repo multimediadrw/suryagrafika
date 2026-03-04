@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const heroSlides = [
   {
@@ -198,22 +199,25 @@ export default function Home() {
       {/* Services Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Layanan Kami</h2>
             <p className="text-gray-500 max-w-xl mx-auto">
               Kami menyediakan berbagai layanan percetakan berkualitas tinggi
             </p>
           </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
+            {services.map((service, idx) => (
+              <ScrollReveal key={service.title} direction="up" delay={idx * 80}>
               <div
-                key={service.title}
-                className="bg-white border border-sky-100 rounded-xl p-7 card-hover cursor-pointer shadow-sm"
+                className="bg-white border border-sky-100 rounded-xl p-7 card-hover cursor-pointer shadow-sm h-full"
               >
                 <div className="mb-5 text-sky-600">{service.icon}</div>
                 <h3 className="text-lg font-bold text-sky-900 mb-2">{service.title}</h3>
                 <p className="text-sky-600 text-sm leading-relaxed">{service.description}</p>
               </div>
+              </ScrollReveal>
             ))}
           </div>
           <div className="text-center mt-12">
@@ -235,18 +239,22 @@ export default function Home() {
       {/* Why Choose Us - Dark Blue Background */}
       <section className="py-20 bg-[#1a3a6b]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Mengapa Harus Kami?</h2>
           </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyUs.map((item) => (
-              <div key={item.title} className="text-center">
+            {whyUs.map((item, idx) => (
+              <ScrollReveal key={item.title} direction="up" delay={idx * 100}>
+              <div className="text-center">
                 <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   {item.icon}
                 </div>
                 <h3 className="font-bold text-white mb-2">{item.title}</h3>
                 <p className="text-blue-200 text-sm leading-relaxed">{item.description}</p>
               </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -255,6 +263,7 @@ export default function Home() {
       {/* Partner Kami */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up">
           <div className="text-center mb-12">
             <span className="text-sky-500 font-semibold text-sm uppercase tracking-wider">Kepercayaan</span>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-3">Partner Kami</h2>
@@ -262,6 +271,7 @@ export default function Home() {
               Dipercaya oleh berbagai perusahaan dan instansi untuk kebutuhan cetak mereka.
             </p>
           </div>
+          </ScrollReveal>
           <div className="marquee-wrapper py-4">
             <div className="marquee-track">
               {[
@@ -295,6 +305,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="gradient-hero py-16 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
+          <ScrollReveal direction="up">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Siap Mencetak Bersama Kami?</h2>
           <p className="text-sky-200 mb-8 text-lg">
             Hubungi kami sekarang dan dapatkan konsultasi gratis untuk kebutuhan cetak Anda.
@@ -315,6 +326,7 @@ export default function Home() {
               Chat WhatsApp
             </a>
           </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

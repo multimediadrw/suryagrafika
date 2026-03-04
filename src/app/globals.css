@@ -78,3 +78,46 @@ html {
   right: 0;
   background: linear-gradient(to left, #f9fafb, transparent);
 }
+
+/* Smooth scroll progress bar */
+@keyframes progress-bar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Navbar link underline animation */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+.nav-link-underline:hover::after {
+  width: 100%;
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.3s ease;
+}
+
+/* Button press effect */
+button, a {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+button:active, a:active {
+  transform: scale(0.97);
+}
+
+/* Section divider wave */
+.section-wave {
+  position: relative;
+  overflow: hidden;
+}

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWA from "@/components/FloatingWA";
+import PageTransition from "@/components/PageTransition";
 
 export const metadata: Metadata = {
   title: "Surya Grafika - Percetakan Profesional",
@@ -43,7 +44,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">
-          {children}
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
         <Footer />
         <FloatingWA />
