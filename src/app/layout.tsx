@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingWA from "@/components/FloatingWA";
 
 export const metadata: Metadata = {
   title: "Surya Grafika - Percetakan Profesional",
@@ -26,6 +27,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <FloatingWA />
       </body>
     </html>
   );
