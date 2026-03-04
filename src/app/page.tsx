@@ -236,7 +236,7 @@ export default function Home() {
                     <img
                       src={partner.src}
                       alt={partner.name}
-                      className="max-h-16 max-w-[120px] object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      className="max-h-16 max-w-[120px] object-contain transition-all duration-300"
                     />
                   </div>
                   <p className="text-xs text-gray-400 mt-2 text-center whitespace-nowrap">{partner.name}</p>
