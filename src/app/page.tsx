@@ -1,4 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+
+const heroSlides = [
+  {
+    src: "/hero/hero1.jpg",
+    alt: "Mesin Percetakan Digital Surya Grafika",
+  },
+  {
+    src: "/hero/hero2.webp",
+    alt: "Proses Cetak Digital Berkualitas Tinggi",
+  },
+];
 
 const services = [
   {
@@ -96,30 +111,59 @@ const whyUs = [
   },
 ];
 
-
-
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="bg-sky-50">
-      {/* Hero Section */}
-      <section className="gradient-hero text-white min-h-screen flex items-center pt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block bg-sky-400/30 text-sky-100 text-sm font-semibold px-4 py-1 rounded-full mb-4">
+      {/* Hero Section - Fullscreen Slideshow */}
+      <section className="relative min-h-screen overflow-hidden">
+        {/* Slides */}
+        {heroSlides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              className="object-cover object-center"
+              priority={index === 0}
+            />
+          </div>
+        ))}
+
+        {/* Overlay biru tipis */}
+        <div className="absolute inset-0 bg-sky-900/55" />
+
+        {/* Konten Hero */}
+        <div className="relative z-10 min-h-screen flex items-center pt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+            <div className="max-w-2xl">
+              <span className="inline-block bg-sky-400/30 text-sky-100 text-sm font-semibold px-4 py-1 rounded-full mb-6 border border-sky-400/40">
                 Percetakan Profesional
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-white">
                 Cetak Impian Anda Bersama{" "}
                 <span className="text-sky-300">Surya Grafika</span>
               </h1>
-              <p className="text-sky-100 text-lg mb-8 leading-relaxed">
+              <p className="text-sky-100 text-lg mb-10 leading-relaxed max-w-xl">
                 Solusi percetakan profesional untuk segala kebutuhan bisnis dan industri. Kualitas terbaik dengan harga kompetitif.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/kontak"
-                  className="bg-white text-sky-700 px-8 py-3 rounded-full font-semibold hover:bg-sky-50 transition-colors text-center"
+                  className="bg-white text-sky-700 px-8 py-3 rounded-full font-semibold hover:bg-sky-50 transition-colors text-center shadow-lg"
                 >
                   Pesan Sekarang
                 </Link>
@@ -131,20 +175,23 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="hidden md:flex justify-center">
-              <div className="w-80 h-80 bg-sky-400/20 rounded-full flex items-center justify-center">
-                <div className="w-64 h-64 bg-sky-400/30 rounded-full flex items-center justify-center">
-                  <div className="text-center">
-                    <svg className="w-24 h-24 text-white/80 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" />
-                    </svg>
-                    <p className="text-white font-bold text-xl">Surya Grafika</p>
-                    <p className="text-sky-200 text-sm">Percetakan Profesional</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
+        </div>
+
+        {/* Indikator Slide - kanan bawah */}
+        <div className="absolute bottom-8 right-8 z-20 flex items-center gap-2">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentSlide
+                  ? "w-8 h-3 bg-white"
+                  : "w-3 h-3 bg-white/50 hover:bg-white/80"
+              }`}
+              aria-label={`Slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 
@@ -217,14 +264,12 @@ export default function Home() {
           </div>
           <div className="marquee-wrapper py-4">
             <div className="marquee-track">
-              {/* Set pertama */}
               {[
                 { src: '/partner/younghyun-star.png', name: 'PT. YoungHyun Star' },
                 { src: '/partner/doosan-jaya-sukabumi.png', name: 'PT. Doosan Jaya Sukabumi' },
                 { src: '/partner/doosan-dunia-busana.png', name: 'PT. Doosan Dunia Busana' },
                 { src: '/partner/doosan-jaya.png', name: 'PT. Busana Indah Global' },
                 { src: '/partner/sengsil.png', name: 'PT. Sengsil Indonesia' },
-                /* Duplikat untuk seamless loop */
                 { src: '/partner/younghyun-star.png', name: 'PT. YoungHyun Star' },
                 { src: '/partner/doosan-jaya-sukabumi.png', name: 'PT. Doosan Jaya Sukabumi' },
                 { src: '/partner/doosan-dunia-busana.png', name: 'PT. Doosan Dunia Busana' },
