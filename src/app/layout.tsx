@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,6 +13,9 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/logo.png",
   },
+  verification: {
+    google: "TfuI95xpSTKAEXXBldFJRKMF5hvCgKZcl6_qX8SxLf0",
+  },
 };
 
 export default function RootLayout({
@@ -21,6 +25,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
+      <head>
+        {/* Google Analytics GA4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZH8BPDE3R5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZH8BPDE3R5');
+          `}
+        </Script>
+      </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">
