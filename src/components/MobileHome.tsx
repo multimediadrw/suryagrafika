@@ -73,12 +73,12 @@ const mobileServices = [
 ];
 
 const galleryImages = [
-  { src: "/galeri/foto1.jpg", alt: "Karya 1" },
-  { src: "/galeri/foto2.jpg", alt: "Karya 2" },
-  { src: "/galeri/foto3.jpg", alt: "Karya 3" },
-  { src: "/galeri/foto4.jpg", alt: "Karya 4" },
-  { src: "/galeri/foto5.jpg", alt: "Karya 5" },
-  { src: "/galeri/foto6.jpg", alt: "Karya 6" },
+  { src: "/galeri/order-form.jpg", alt: "Cetak Form" },
+  { src: "/galeri/kartu-nama.jpg", alt: "Kartu Nama" },
+  { src: "/galeri/spanduk.jpg", alt: "Spanduk" },
+  { src: "/galeri/undangan.jpg", alt: "Undangan" },
+  { src: "/galeri/service-report.jpg", alt: "Surat Jalan" },
+  { src: "/galeri/color-card.jpg", alt: "Cetak A3" },
 ];
 
 export default function MobileHome() {
