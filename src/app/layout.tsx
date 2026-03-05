@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWA from "@/components/FloatingWA";
 import PageTransition from "@/components/PageTransition";
+import MobileHeader from "@/components/MobileHeader";
+import MobileBottomNav from "@/components/MobileBottomNav";
 
 export const metadata: Metadata = {
   title: "Surya Grafika - Percetakan Profesional",
@@ -14,8 +16,18 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/logo.png",
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Surya Grafika",
+  },
   verification: {
     google: "TfuI95xpSTKAEXXBldFJRKMF5hvCgKZcl6_qX8SxLf0",
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+    "msapplication-TileColor": "#0ea5e9",
   },
 };
 
@@ -42,14 +54,32 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen flex flex-col">
-        <Navbar />
+        {/* Desktop Navbar - hanya tampil di md ke atas */}
+        <div className="hidden md:block">
+          <Navbar />
+        </div>
+
+        {/* Mobile Header - hanya tampil di bawah md */}
+        <MobileHeader />
+
         <main className="flex-1">
           <PageTransition>
             {children}
           </PageTransition>
         </main>
-        <Footer />
-        <FloatingWA />
+
+        {/* Desktop Footer - hanya tampil di md ke atas */}
+        <div className="hidden md:block">
+          <Footer />
+        </div>
+
+        {/* Mobile Bottom Nav - hanya tampil di bawah md */}
+        <MobileBottomNav />
+
+        {/* Floating WA - hanya di desktop */}
+        <div className="hidden md:block">
+          <FloatingWA />
+        </div>
       </body>
     </html>
   );

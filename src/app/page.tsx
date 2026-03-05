@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
+import MobileHome from "@/components/MobileHome";
 
 const heroSlides = [
   {
@@ -123,7 +124,14 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-sky-50">
+    <>
+      {/* Mobile View */}
+      <div className="md:hidden">
+        <MobileHome />
+      </div>
+
+      {/* Desktop View */}
+      <div className="hidden md:block bg-sky-50">
       {/* Hero Section - Fullscreen Slideshow */}
       <section className="relative min-h-screen overflow-hidden">
         {/* Slides */}
@@ -329,6 +337,7 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
